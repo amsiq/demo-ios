@@ -9,30 +9,23 @@ class ViewController: UIViewController {
         
         let realm = Realm.create()
         
-        let personId = 1
-        
-        // Read
-        if let readPerson = Person.load(realm: realm, id: personId) {
-            debugPrint("Read person with id \(personId) has age: \(readPerson.age)")
-        } else {
-            debugPrint("Read person with id \(personId): NOT FOUND")
-        }
-        
         // Create
-        let json = self.getPerson()
-        let personJson = json["person"]
+        let json = self.getPersons()
+        let personsJson = json["persons"]
         
         // Persist
         realm.safeWrite {
-            let managedPerson = Person.parseAndPersist(json: personJson, realm: realm)
-            
-            debugPrint("Wrote person with id \(personId) has animals: \(Array(managedPerson.animals).map({ $0.name }))")
+            let persons = personsJson.arrayValue.map({ Person.parseAndPersist(json: $0, realm: realm) })
+
+            persons.forEach {
+                debugPrint("Saved: \($0.firstName) \($0.lastName) with animals: \(Array($0.animals.map({ $0.name })))")
+            }
         }
     }
             
             
-    private func getPerson() -> JSON {
-        let path = Bundle.main.path(forResource: "Person", ofType: "json")!
+    private func getPersons() -> JSON {
+        let path = Bundle.main.path(forResource: "Persons", ofType: "json")!
         let jsonString = try! String(contentsOfFile: path, encoding: .utf8)
     
         return JSON(parseJSON: jsonString)
