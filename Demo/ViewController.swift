@@ -6,7 +6,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let realm = try! Realm()
+        let realm = Realm.create()
         
         let personId = 1
         
@@ -25,8 +25,8 @@ class ViewController: UIViewController {
         person.age = 58
         
         // Persist
-        try! realm.write() {
             let managedPerson = realm.create(Person.self, value: person, update: true)
+        realm.safeWrite {
             
             debugPrint("Wrote person with id \(personId) has age: \(managedPerson.age)")
         }
