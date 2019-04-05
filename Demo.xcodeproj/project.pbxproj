@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27A0D88F22576C6100433834 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A0D88E22576C6100433834 /* NetworkManager.swift */; };
 		27F7176222573A0300B29664 /* Persons.json in Resources */ = {isa = PBXBuildFile; fileRef = 27F7176122573A0300B29664 /* Persons.json */; };
 		27F7176422574BF500B29664 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7176322574BF500B29664 /* Animal.swift */; };
 		2E46CD66120929BB3E336977 /* Pods_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B4D9A6EF682B355F898ED77 /* Pods_Demo.framework */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		0B4D9A6EF682B355F898ED77 /* Pods_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27A0D88E22576C6100433834 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		27F7176122573A0300B29664 /* Persons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Persons.json; sourceTree = "<group>"; };
 		27F7176322574BF500B29664 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
 		4E9F079BE0200FD890734C2A /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27A0D88A22576B3500433834 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				27A0D88E22576C6100433834 /* NetworkManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		27F71760225739BF00B29664 /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +89,7 @@
 		6D011645224F88F600E85754 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				27A0D88A22576B3500433834 /* API */,
 				6D6DCC13224F9087006C83F6 /* Database */,
 				6D6DCC19224FA240006C83F6 /* Extensions */,
 				6D6DCC16224F9435006C83F6 /* Models */,
@@ -236,6 +247,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Demo/Pods-Demo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -244,6 +256,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -264,6 +277,7 @@
 				6D6DCC15224F90A0006C83F6 /* RealmHelper.swift in Sources */,
 				6D6DCC18224F944E006C83F6 /* Person.swift in Sources */,
 				6D011647224F88F600E85754 /* AppDelegate.swift in Sources */,
+				27A0D88F22576C6100433834 /* NetworkManager.swift in Sources */,
 				6D6DCC1B224FA257006C83F6 /* RealmExtension.swift in Sources */,
 				27F7176422574BF500B29664 /* Animal.swift in Sources */,
 			);
