@@ -9,26 +9,29 @@ class ViewController: UIViewController {
         
         let realm = Realm.create()
         
-        // Create
-        let json = self.getPersons()
-        let personsJson = json["persons"]
-        
-        // Persist
-        realm.safeWrite {
-            let persons = personsJson.arrayValue.map({ Person.parseAndPersist(json: $0, realm: realm) })
+        _ = PersonsAPI.get()
+            .subscribe(onNext: { (json) in
+                print("RxSwift onNext:\n\(json.prettyPrintedString())")
 
-            persons.forEach {
-                debugPrint("Saved: \($0.firstName) \($0.lastName) with animals: \(Array($0.animals.map({ $0.name })))")
-            }
-        }
+                let personsJson = json["persons"]
+
+                // Persist
+                realm.safeWrite {
+                    let persons = personsJson.arrayValue.map({ Person.parseAndPersist(json: $0, realm: realm) })
+
+                    persons.forEach {
+                        debugPrint("Saved: \($0.firstName) \($0.lastName) with animals: \(Array($0.animals.map({ $0.name })))")
+                    }
+                }
+
+            }, onError: { (error) in
+                debugPrint("RxSwift onError: \(error)")
+
+            }, onCompleted: {
+                debugPrint("RxSwift onCompleted")
+
+            }, onDisposed: {
+                debugPrint("RxSwift onDisposed")
+            })
     }
-            
-            
-    private func getPersons() -> JSON {
-        let path = Bundle.main.path(forResource: "Persons", ofType: "json")!
-        let jsonString = try! String(contentsOfFile: path, encoding: .utf8)
-    
-        return JSON(parseJSON: jsonString)
-    }
-    
 }
