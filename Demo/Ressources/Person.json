@@ -3,6 +3,10 @@
     "id": 1,
     "firstName": "first_name",
     "lastName": "last_name",
-    "age": 0
+    "age": 0,
+    "animal": {
+        "id": 1,
+        "name": "Fido"
+    }
   }
 }
