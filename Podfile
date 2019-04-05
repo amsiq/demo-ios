@@ -5,6 +5,8 @@ target 'Demo' do
   
   pod 'Alamofire'
   pod 'RealmSwift'
+  pod 'RxAlamofire'
+  pod 'RxSwift'
   pod 'SwiftyJSON'
 
 end
