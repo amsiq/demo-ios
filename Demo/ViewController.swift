@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         realm.safeWrite {
             let managedPerson = Person.parseAndPersist(json: personJson, realm: realm)
             
-            debugPrint("Wrote person with id \(personId) has animal with name: \(managedPerson.animal?.name ?? "#noAnimal")")
+            debugPrint("Wrote person with id \(personId) has animals: \(Array(managedPerson.animals).map({ $0.name }))")
         }
     }
             

@@ -11,7 +11,7 @@ class Person: Object {
     @objc dynamic var lastName: String = ""
     @objc dynamic var age: Int = 0
     
-    @objc dynamic var animal: Animal?
+    let animals = List<Animal>()
 
     class func load(realm: Realm, id: Int) -> Person? {
         return realm.objects(Person.self).first(where: { $0.id == id })
