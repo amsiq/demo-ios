@@ -13,6 +13,7 @@
 		6D01164C224F88F600E85754 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D01164A224F88F600E85754 /* Main.storyboard */; };
 		6D01164E224F88F700E85754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D01164D224F88F700E85754 /* Assets.xcassets */; };
 		6D011651224F88F700E85754 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D01164F224F88F700E85754 /* LaunchScreen.storyboard */; };
+		6D6DCC15224F90A0006C83F6 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D6DCC14224F90A0006C83F6 /* RealmHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6D01164D224F88F700E85754 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D011650224F88F700E85754 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6D011652224F88F700E85754 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D6DCC14224F90A0006C83F6 /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		6D011645224F88F600E85754 /* Demo */ = {
 			isa = PBXGroup;
 			children = (
+				6D6DCC13224F9087006C83F6 /* Database */,
 				6D011646224F88F600E85754 /* AppDelegate.swift */,
 				6D011648224F88F600E85754 /* ViewController.swift */,
 				6D01164A224F88F600E85754 /* Main.storyboard */,
@@ -69,6 +72,14 @@
 				6D011652224F88F700E85754 /* Info.plist */,
 			);
 			path = Demo;
+			sourceTree = "<group>";
+		};
+		6D6DCC13224F9087006C83F6 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				6D6DCC14224F90A0006C83F6 /* RealmHelper.swift */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 		98317CFCFF89CEDFA64A9D3E /* Frameworks */ = {
@@ -85,7 +96,6 @@
 				653FD752B3CE97C9FE0C57B2 /* Pods-Demo.debug.xcconfig */,
 				4E9F079BE0200FD890734C2A /* Pods-Demo.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D011649224F88F600E85754 /* ViewController.swift in Sources */,
+				6D6DCC15224F90A0006C83F6 /* RealmHelper.swift in Sources */,
 				6D011647224F88F600E85754 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
