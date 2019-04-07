@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -18,18 +19,23 @@ class ViewController: UIViewController {
         }
         
         // Create
-        let person = Person()
-        person.id = personId
-        person.firstName = "Tim"
-        person.lastName = "Cook"
-        person.age = 58
+        let json = self.getPerson()
+        let personJson = json["person"]
         
         // Persist
-            let managedPerson = realm.create(Person.self, value: person, update: true)
         realm.safeWrite {
+            let managedPerson = Person.parseAndPersist(json: personJson, realm: realm)
             
-            debugPrint("Wrote person with id \(personId) has age: \(managedPerson.age)")
+            debugPrint("Wrote person with id \(personId) has first name: \(managedPerson.firstName) & last name: \(managedPerson.lastName)")
         }
+    }
+            
+            
+    private func getPerson() -> JSON {
+        let path = Bundle.main.path(forResource: "Person", ofType: "json")!
+        let jsonString = try! String(contentsOfFile: path, encoding: .utf8)
+    
+        return JSON(parseJSON: jsonString)
     }
     
 }

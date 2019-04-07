@@ -4,5 +4,6 @@ target 'Demo' do
   use_frameworks!
   
   pod 'RealmSwift'
+  pod 'SwiftyJSON'
 
 end
