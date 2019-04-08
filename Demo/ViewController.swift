@@ -1,5 +1,6 @@
 import UIKit
 import RealmSwift
+import RxSwift
 import SwiftyJSON
 
 class ViewController: UIViewController {
@@ -10,6 +11,8 @@ class ViewController: UIViewController {
         let realm = Realm.create()
         
         _ = PersonsAPI.get()
+            .subscribeOn(ConcurrentDispatchQueueScheduler.background)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { (json) in
                 print("RxSwift onNext:\n\(json.prettyPrintedString())")
 
